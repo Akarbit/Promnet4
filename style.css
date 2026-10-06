@@ -6,47 +6,93 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    background:
+        radial-gradient(circle at top left, #bfdbfe, transparent 35%),
+        radial-gradient(circle at bottom right, #dbeafe, transparent 35%),
+        linear-gradient(135deg, #eff6ff, #dbeafe);
+
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: 30px;
+
+    color: #1e293b;
 }
 
+/* Container utama */
 .container {
     width: 100%;
-    max-width: 650px;
+    max-width: 700px;
 
-    background: white;
-    padding: 35px;
+    background: rgba(255, 255, 255, 0.92);
 
-    border-radius: 18px;
+    padding: 40px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.12),
+        0 5px 15px rgba(37, 99, 235, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    animation: muncul 0.6s ease;
+}
+
+/* Animasi container */
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Judul */
 h1 {
     text-align: center;
+
     color: #0b3d91;
-    font-size: 32px;
+
+    font-size: 34px;
+
     margin-bottom: 8px;
+
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
     text-align: center;
+
     color: #64748b;
+
     font-size: 15px;
-    margin-bottom: 28px;
+
+    margin-bottom: 30px;
 }
 
-/* Input dan tombol */
+/* Area input */
 .input-area {
     display: flex;
+
     gap: 10px;
+
+    background: #f8fafc;
+
+    padding: 7px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e2e8f0;
 }
 
 #inputTugas {
@@ -54,70 +100,130 @@ h1 {
 
     padding: 14px 16px;
 
-    border: 2px solid #e2e8f0;
+    background: transparent;
+
+    border: none;
+
     border-radius: 10px;
 
     font-size: 15px;
 
+    color: #1e293b;
+
     transition: 0.2s;
+}
+
+#inputTugas::placeholder {
+    color: #94a3b8;
 }
 
 #inputTugas:focus {
     outline: none;
-    border-color: #0b3d91;
-    box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.1);
+
+    background: white;
+
+    box-shadow: 0 0 0 2px rgba(11, 61, 145, 0.1);
 }
 
+/* Tombol tambah */
 #btnTambah {
-    padding: 14px 22px;
+    padding: 13px 22px;
 
-    background-color: #0b3d91;
+    background: linear-gradient(135deg, #0b3d91, #2563eb);
+
     color: white;
 
     border: none;
+
     border-radius: 10px;
 
     font-size: 15px;
+
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
+
+    transition: 0.25s;
 }
 
 #btnTambah:hover {
-    background-color: #082f70;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+
+    background: linear-gradient(135deg, #082f70, #1d4ed8);
+}
+
+#btnTambah:active {
+    transform: translateY(0);
 }
 
 /* Pesan error */
 #pesan {
     color: #dc2626;
+
     font-size: 14px;
+
     margin-top: 10px;
+
     min-height: 20px;
+
+    padding-left: 4px;
 }
 
 /* Statistik */
 .statistik {
     display: flex;
-    gap: 12px;
 
-    margin: 20px 0;
+    gap: 14px;
+
+    margin: 22px 0;
 }
 
 .statistik div {
     flex: 1;
 
-    background-color: #f8fafc;
+    background: linear-gradient(145deg, #f8fafc, #eef6ff);
 
     padding: 18px 10px;
 
     text-align: center;
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    border: 1px solid #e2e8f0;
+    border: 1px solid #dbeafe;
+
+    transition: 0.25s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.statistik div::before {
+    content: "";
+
+    position: absolute;
+
+    width: 60px;
+    height: 60px;
+
+    background: rgba(59, 130, 246, 0.08);
+
+    border-radius: 50%;
+
+    top: -25px;
+    right: -20px;
+}
+
+.statistik div:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+
+    border-color: #93c5fd;
 }
 
 .statistik span {
@@ -125,44 +231,71 @@ h1 {
 
     color: #0b3d91;
 
-    font-size: 26px;
+    font-size: 28px;
+
     font-weight: bold;
 
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .statistik p {
     color: #64748b;
-    font-size: 14px;
+
+    font-size: 13px;
+
+    font-weight: 500;
 }
 
 /* Daftar tugas */
 #daftarTugas {
     list-style: none;
 
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
+/* Item tugas */
 .item-tugas {
     display: flex;
+
     align-items: center;
+
     gap: 12px;
 
-    background-color: #f8fafc;
+    background: white;
 
-    padding: 14px 15px;
+    padding: 15px 16px;
 
-    margin-bottom: 10px;
+    margin-bottom: 11px;
 
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
 
-    transition: 0.2s;
+    border-radius: 14px;
+
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+
+    transition: 0.25s;
+
+    animation: tugasMasuk 0.3s ease;
+}
+
+@keyframes tugasMasuk {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .item-tugas:hover {
     border-color: #93c5fd;
-    transform: translateY(-1px);
+
+    transform: translateX(3px);
+
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.1);
 }
 
 .item-tugas span {
@@ -173,54 +306,136 @@ h1 {
     cursor: pointer;
 
     line-height: 1.5;
+
+    transition: 0.2s;
+}
+
+/* Hover teks tugas */
+.item-tugas span:hover {
+    color: #0b3d91;
 }
 
 /* Tugas selesai */
 .completed {
     text-decoration: line-through;
+
     color: #94a3b8 !important;
 }
 
 /* Tombol hapus */
 .btn-hapus {
-    background-color: #ef4444;
+    background: #fee2e2;
 
-    color: white;
+    color: #dc2626;
 
     border: none;
-    border-radius: 7px;
 
-    padding: 8px 13px;
+    border-radius: 9px;
+
+    padding: 8px 12px;
 
     font-size: 13px;
 
+    font-weight: bold;
+
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
 .btn-hapus:hover {
-    background-color: #dc2626;
-    transform: scale(1.03);
+    background: #dc2626;
+
+    color: white;
+
+    transform: scale(1.05);
+
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
+}
+
+.btn-hapus:active {
+    transform: scale(0.97);
+}
+
+/* Tampilan tablet */
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        padding: 30px 25px;
+    }
 }
 
 /* Tampilan HP */
 @media (max-width: 600px) {
 
+    body {
+        padding: 15px;
+    }
+
     .container {
-        padding: 25px 20px;
+        padding: 25px 18px;
+
+        border-radius: 20px;
     }
 
     h1 {
         font-size: 28px;
     }
 
+    .subtitle {
+        font-size: 14px;
+
+        margin-bottom: 22px;
+    }
+
     .input-area {
         flex-direction: column;
+
+        padding: 6px;
+    }
+
+    #inputTugas {
+        background: white;
+
+        border: 1px solid #e2e8f0;
+
+        padding: 13px;
     }
 
     #btnTambah {
         width: 100%;
+    }
+
+    .statistik {
+        gap: 8px;
+    }
+
+    .statistik div {
+        padding: 14px 8px;
+    }
+
+    .statistik span {
+        font-size: 23px;
+    }
+
+    .statistik p {
+        font-size: 12px;
+    }
+
+    .item-tugas {
+        padding: 13px;
+    }
+}
+
+/* HP kecil */
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 25px;
     }
 
     .statistik {
@@ -229,5 +444,13 @@ h1 {
 
     .statistik div {
         padding: 12px;
+    }
+
+    .item-tugas {
+        gap: 8px;
+    }
+
+    .btn-hapus {
+        padding: 7px 9px;
     }
 }
