@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Interaktif</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>To-Do List</h1>
+        <p class="subtitle">Daftar tugas saya</p>
+
+        <div class="input-area">
+            <input type="text" id="inputTugas" placeholder="Masukkan tugas...">
+            <button id="btnTambah">Tambah</button>
+        </div>
+
+        <p id="pesan"></p>
+
+        <div class="statistik">
+            <div>
+                <span id="totalTugas">0</span>
+                <p>Total</p>
+            </div>
+
+            <div>
+                <span id="tugasSelesai">0</span>
+                <p>Selesai</p>
+            </div>
+
+            <div>
+                <span id="tugasBelumSelesai">0</span>
+                <p>Belum Selesai</p>
+            </div>
+        </div>
+
+        <ul id="daftarTugas"></ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
